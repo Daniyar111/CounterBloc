@@ -1,3 +1,4 @@
+import 'package:counter_bloc/src/data/blocs/theme_bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,6 +10,7 @@ class CounterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final CounterBloc _counterBloc = BlocProvider.of<CounterBloc>(context);
+    final ThemeBloc _themeBloc = BlocProvider.of<ThemeBloc>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -45,6 +47,15 @@ class CounterScreen extends StatelessWidget {
               child: Icon(Icons.remove),
               onPressed: (){
                 _counterBloc.dispatch(CounterEvent.decrement);
+              },
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 5),
+            child: FloatingActionButton(
+              child: Icon(Icons.update),
+              onPressed: (){
+                _themeBloc.dispatch(ThemeEvent.toggle);
               },
             ),
           )
