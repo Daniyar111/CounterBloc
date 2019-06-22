@@ -12,6 +12,7 @@ class App extends StatelessWidget {
       title: 'Counter',
       home: BlocProvider<CounterBloc>(
         builder: (BuildContext context){
+
           return CounterBloc();
         },
         child: CounterScreen(),
